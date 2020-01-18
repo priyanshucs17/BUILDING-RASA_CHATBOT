@@ -4,3 +4,8 @@ policies:
 - name: MemoizationPolicy
 - name: KerasPolicy
 - name: MappingPolicy
+- name: "FallbackPolicy"
+  nlu_threshold: 0.3
+  ambiguity_threshold: 0.1
+  core_threshold: 0.3
+  fallback_action_name: 'utter_default'

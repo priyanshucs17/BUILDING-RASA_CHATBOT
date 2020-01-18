@@ -8,14 +8,13 @@ def get_message_text(restaurant_data):
 def get_message_email(restaurant_data, subject):
     """
         function to prepare the HTML for the emailer that we have to send.
-
     """
     # @todo:: remove below line for live.
-    restaurant_data = constants.restaurant_master
+    # restaurant_data = constants.restaurant_master
     txt_items = []
 
     # prepare the restaurant data
-    for rest in restaurant_data['restaurants']:
+    for rest in restaurant_data:
         list_item_template = constants.restaurant_list_template
         rest_name = rest.get("restaurant").get("name")
         rest_add = rest.get("restaurant").get("location").get("address")

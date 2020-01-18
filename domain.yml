@@ -17,7 +17,9 @@ entities:
 - user_email
 intents:
 - affirm
+- deny
 - send_email
+- bot_challenge
 - restaurant_search
 - greet
 - goodbye

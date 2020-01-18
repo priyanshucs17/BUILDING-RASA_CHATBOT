@@ -56,6 +56,10 @@ def search_process_data(city, cuisine, budget ):
         no_cuisine = True
         dresults = quick_search(cityObj, "", 10)
 
+        # check even if we have results now.... complete city search with no budget and no cuisine ... still no results
+        if dresults['results_found'] == 0:
+            raise NoDataerror("No results found")
+
     # now we need to check for budget preference.
     # filter on price of two people if results not in budget, send email of restaurants of all budgets.
     final_results = filter_restaurant_price(dresults["restaurants"], budget)
@@ -70,7 +74,7 @@ def quick_search(cityObj, cuisine_id, limit):
     config={ "user_key":"f4924dc9ad672ee8c4f8c84743301af5"}
     zomato = zomatopy.initialize_app(config)
 
-    results = zomato.restaurant_search(query="", latitude=cityObj.get("lat"), longitude=cityObj.get("lon"), cuisines=cuisine_id, limit=10)
+    results = zomato.restaurant_search(query="", latitude=cityObj.get("lat"), longitude=cityObj.get("lon"), cuisines=cuisine_id, limit=limit)
     return json.loads(results)
 
 
@@ -86,3 +90,10 @@ def filter_restaurant_price(results, budget):
             out.append(data)
 
     return out
+
+
+
+# defining the exception class
+class NoDataerror(RuntimeError):
+   def __init__(self, arg):
+      self.args = arg

@@ -214,11 +214,7 @@ allowed_cities_data = [{'city_id': 4, 'city_name': 'bangalore', 'zomato_city_nam
 {'city_id': 28, 'city_name': 'visakhapatnam', 'zomato_city_name': 'Visakhapatnam', 'lat': 17.6883, 'lon': 83.2186}]
 
 
-restaurant_master = {
-  "results_found": 1198,
-  "results_start": 0,
-  "results_shown": 20,
-  "restaurants": [
+restaurant_master = [
     {
       "restaurant": {
         "apikey": "f4924dc9ad672ee8c4f8c84743301af5",
@@ -306,7 +302,7 @@ restaurant_master = {
       }
     }
   ]
-}
+
 
 text_message_template = ""
 
@@ -605,7 +601,7 @@ restaurant_list_template="""
           <td width="20%" class="pull-left rating">
             <img class="rating" src="http://s3.amazonaws.com/swu-filepicker/JJ7YmPzNQJujBPJq6yVi_star_03.jpg" alt="1" /> {{{restaurant_rating}}}
           </td>
-          <td width="80%" class="pull-right">Cost of two: {{{restaurant_cost}}}</td>
+          <td width="80%" class="pull-right">Cost of two: Rs.{{{restaurant_cost}}}</td>
         </tr>
       </table>
     </td>
