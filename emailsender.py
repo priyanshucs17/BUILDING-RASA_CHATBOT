@@ -2,7 +2,7 @@ import smtplib, re
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-from_email="ankur@dreamx.in"
+from_email="sender@email.com"
 
 def send_email_message(subject, to_email,  message):
     client = smtplib.SMTP('mail.smtp2go.com', 8025)
@@ -10,7 +10,7 @@ def send_email_message(subject, to_email,  message):
     client.starttls()
 
     # Authentication
-    client.login(from_email, "hRb6ia7mWnZg")
+    client.login(from_email, "XXXXXXXXXXX")
 
     # message to be sent
     msg = MIMEMultipart('alternative')
